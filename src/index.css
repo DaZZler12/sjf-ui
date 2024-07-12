@@ -1,0 +1,13 @@
+
+
+body {
+  margin: 0;
+  font-family: 'poppins';
+  background-color: #ffffff;
+  font-synthesis: none;
+  width: 100%;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
