@@ -8,7 +8,7 @@ import { getStatusIcons } from "../../utils/getStatusIcons";
 const SjfList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const totalItems = 100; // Assuming 10 items for simplicity, adjust as needed
+  const totalItems = 50; // Assuming 10 items for simplicity, adjust as needed
 
   // Dummy data for rendering cards
   const cardsData = new Array(totalItems).fill(null).map((_, index) => ({
