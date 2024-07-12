@@ -32,7 +32,7 @@ const SjfList = () => {
     <div className="sjf-list">
       {currentItems.map((item, index) => (
         <SJFCard
-          key={item.id}
+          key={item?.id}
           iconUrl={getStatusIcons(item?.status)}
           title={item?.name}
           onViewDetails={() => {
