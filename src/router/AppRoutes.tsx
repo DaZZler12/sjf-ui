@@ -5,6 +5,7 @@ import SjfList from "../features/sjf/pages/List/SjfList";
 import SjfDetails from "../features/sjf/pages/Details/SjfDetails";
 import ComponentBuilder from "../componentbuilder/ComponentBuilder";
 import SjfLayout from "../features/sjf/pages/SjfLayout";
+import NotFound from "../features/sjf/components/notfound/NotFoundComponent";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -20,42 +21,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-
-export const Home = () => {
-  return (
-    <>
-      <h1>Home</h1>
-    </>
-  );
-};
-
-const About = () => {
-  return (
-    <>
-      <h1>About</h1>
-    </>
-  );
-};
-
-const Contact = () => {
-  return (
-    <>
-      <h1>Contact</h1>
-    </>
-  );
-};
-
-const NotFound = () => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontSize: "2rem",
-      }}
-    >
-      <h1>404 Not Found!</h1>
-    </div>
-  );
-};
