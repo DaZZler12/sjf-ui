@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import useDebounce from "../../../../customhooks/useDebounce";
 
-//interface for the props
 interface SearchBarProps {
   onSearch: (term: string) => void;
 }
@@ -26,7 +25,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       fullWidth
       variant="standard"
       value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
+      onChange={(e) => setSearchTerm(e?.target?.value)}
     />
   );
 };

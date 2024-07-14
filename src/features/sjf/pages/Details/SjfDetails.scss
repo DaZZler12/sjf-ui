@@ -1,0 +1,69 @@
+.sjf-details {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &__content {
+        width: 900px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    &__subheader {
+        background-color: rgb(237, 222, 247);
+        padding: 5px;
+        border: 2px dotted rgb(232, 212, 245);
+        border-radius: 10px;
+    }
+
+    &__card {
+        &--outlined {
+            height: 200px;
+            width: 70%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05) rotateX(10deg);
+                box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 0, 0, 0.2);
+            }
+
+        }
+    }
+
+    &__card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__top-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    &__duration {
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        padding: 5px 10px;
+    }
+
+    &__bottom-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__job-name {
+        font-weight: bold;
+        color: #333;
+    }
+}
