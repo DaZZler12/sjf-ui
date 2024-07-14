@@ -8,13 +8,14 @@ import {
   Button,
   Fade,
 } from "@mui/material";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import useSjfJobActions from "./useSjfJobActions";
 
 // Validation schema
 const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
-  arrivalTime: Yup.number()
+  duration: Yup.number()
     .positive("Must be positive and greater than zero")
     .moreThan(0, "Must be greater than zero")
     .required("Required"),
@@ -26,6 +27,7 @@ interface SjfJobFormProps {
   handleClose: () => void;
 }
 const SjfJobForm: React.FC<SjfJobFormProps> = ({ open, handleClose }) => {
+  const { handleCreateSjfJob } = useSjfJobActions();
   return (
     <Dialog
       open={open}
@@ -35,11 +37,11 @@ const SjfJobForm: React.FC<SjfJobFormProps> = ({ open, handleClose }) => {
       TransitionComponent={Fade}
     >
       <Formik
-        initialValues={{ name: "", arrivalTime: "", description: "" }}
+        initialValues={{ name: "", duration: "", description: "" }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           // Handle form submission
-          console.log(values);
+          handleCreateSjfJob(values);
           handleClose(); // Close the dialog on submission
           setSubmitting(false);
         }}
@@ -48,9 +50,9 @@ const SjfJobForm: React.FC<SjfJobFormProps> = ({ open, handleClose }) => {
           <Form>
             <DialogTitle>Add Job</DialogTitle>
             <DialogContent>
-              <TextField
-                // as={TextField}
-                autoFocus
+              <Field
+                as={TextField}
+                // autoFocus
                 margin="dense"
                 name="name"
                 label="Name"
@@ -66,15 +68,14 @@ const SjfJobForm: React.FC<SjfJobFormProps> = ({ open, handleClose }) => {
               <Field
                 as={TextField}
                 margin="dense"
-                name="arrivalTime"
-                label="Arrival Time"
+                name="duration"
+                label="Job Duration"
                 type="text"
                 fullWidth
                 variant="standard"
-                placeholder="Arrival Time"
                 inputProps={{ pattern: "[0-9]*[.,]?[0-9]*" }}
-                error={touched.arrivalTime && Boolean(errors.arrivalTime)}
-                helperText={touched.arrivalTime && errors.arrivalTime}
+                error={touched.duration && Boolean(errors.duration)}
+                helperText={touched.duration && errors.duration}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />

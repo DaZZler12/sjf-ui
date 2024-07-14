@@ -7,15 +7,30 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import { Box } from "@mui/system";
+import { IconButton } from "@mui/material";
+import { DeleteOutline } from "@mui/icons-material";
+import { Status } from "../../utils/Status";
 interface SJFCardProps {
+  key: string;
   iconUrl: string;
+  status: string;
   title: string;
   onViewDetails: () => void;
+  onDelete: () => void;
+  disabled?: boolean;
 }
 
-const SJFCard: React.FC<SJFCardProps> = ({ iconUrl, title, onViewDetails }) => {
+const SJFCard: React.FC<SJFCardProps> = ({
+  key,
+  iconUrl,
+  status,
+  title,
+  onViewDetails,
+  onDelete,
+  disabled,
+}) => {
   return (
-    <Card className="sjfcard">
+    <Card className="sjfcard" key={key}>
       <CardContent>
         <Box display="flex" alignItems="center" gap={2}>
           <Avatar
@@ -30,9 +45,15 @@ const SJFCard: React.FC<SJFCardProps> = ({ iconUrl, title, onViewDetails }) => {
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={onViewDetails}>
-          View Details
+        <Button size="small" onClick={onViewDetails} disabled={disabled}>
+          {"View Details"}
         </Button>
+        <IconButton
+          onClick={onDelete}
+          disabled={disabled || status != Status.completed}
+        >
+          <DeleteOutline />
+        </IconButton>
       </CardActions>
     </Card>
   );

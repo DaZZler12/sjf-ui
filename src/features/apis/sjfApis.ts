@@ -29,11 +29,41 @@ export const sjfApi = createApi({
         };
       },
     }),
-    // Other endpoints go here
+    // wesocket get by id endpoint
+    getWSById: builder.query({
+      query: (id: string) => ({
+        url: sjfUrls.sjf.v1.getV1WebSocket(id),
+        method: "GET",
+      }),
+    }),
+
+    //create endpoint
+    create: builder.mutation({
+      query: (data: any) => ({
+        url: sjfUrls.sjf.v1.postV1(),
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["SJF"],
+    }),
+
+    // delete endpoint
+    delete: builder.mutation({
+      query: (id: string) => ({
+        url: sjfUrls.sjf.v1.deleteV1(id),
+        method: "DELETE",
+      }),
+      invalidatesTags: ["SJF"],
+    }),
   }),
 });
 
-export const { useGetSJFListQuery } = sjfApi;
+export const {
+  useGetSJFListQuery,
+  useGetWSByIdQuery,
+  useCreateMutation,
+  useDeleteMutation,
+} = sjfApi;
 
 //  list of apis
 //  LIST: http://localhost:8080/api/sjf/v1?_start=0&_end=10&sort=_id&order=DESC
