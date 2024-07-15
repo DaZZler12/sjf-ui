@@ -51,16 +51,17 @@ const useSjfListData = (searchTerm?: string) => {
   const listResponse = useGetSJFListQuery(paginationData, {
     pollingInterval: 5000, // poll every 5 seconds
     refetchOnMountOrArgChange: true,
+    
   });
   useEffect(() => {
-    if (listResponse.isSuccess) {
-      setListData(listResponse.data?.data || []);
-      setTotalCount(listResponse.data?.totalCount || 0);
+    if (listResponse?.isSuccess) {
+      setListData(listResponse?.data?.data || []);
+      setTotalCount(listResponse?.data?.totalCount || 0);
       setTimeout(() => {
         setLoading(false);
       }, 2000);
-    } else if (listResponse.isError) {
-      console.error("Error fetching list data:", listResponse.error);
+    } else if (listResponse?.isError) {
+      console.error("Error fetching list data:", listResponse?.error);
       setTimeout(() => {
         setLoading(false);
       }, 2000);
@@ -75,7 +76,7 @@ const useSjfListData = (searchTerm?: string) => {
     listData && setCurrentItems(listData);
   }, [listData, indexOfFirstItem, indexOfLastItem]);
 
-  // need to make alter the pagiantionData based on the searchTerm
+  // need to alter the pagiantionData based on the searchTerm
   useMemo(() => {
     setPaginationData((prev) => {
       if (searchTerm) {
@@ -89,11 +90,6 @@ const useSjfListData = (searchTerm?: string) => {
       }
     });
   }, [searchTerm]);
-
-  // console.log("OPP Current items:", currentItems);
-  // console.log("OPP indexOfFirstItem:", indexOfFirstItem);
-  // console.log("OPP indexOfLastItem:", indexOfLastItem);
-  // console.log("OPP listData:", listData);
 
   return useMemo(
     () => ({
