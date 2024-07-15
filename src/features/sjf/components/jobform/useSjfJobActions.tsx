@@ -2,13 +2,28 @@
 
 import { useCallback, useEffect, useMemo } from "react";
 import { useCreateMutation } from "../../../apis/sjfApis";
+import { useNotification } from "../../../../notificationprovider/NotificationProvider";
 
 const useSjfJobActions = () => {
+  const { setNotification } = useNotification() as {
+    setNotification: (notification: any) => void;
+  };
+
   const [submitSJFJob, createResponse] = useCreateMutation();
 
   useEffect(() => {
     if (createResponse?.isSuccess) {
-      console.log("Job created successfully, the data: ", createResponse);
+      setNotification({
+        open: true,
+        message: "SJF Job created successfully",
+        type: "success",
+      });
+    } else if (createResponse?.isError) {
+      setNotification({
+        open: true,
+        message: "Error while creating SJF Job",
+        type: "error",
+      });
     }
   }, [createResponse]);
 

@@ -42,9 +42,6 @@ const NotFound: React.FC = () => {
           height: "100%",
         }}
       />
-      {/* <Typography variant="h5" component="h2" sx={{ mt: 2 }}>
-        {" No Data Found"}
-      </Typography> */}
     </AnimatedBox>
   );
 };

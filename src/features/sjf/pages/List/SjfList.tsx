@@ -1,4 +1,3 @@
-// SjfList.tsx
 import React, { useState } from "react";
 import "./SjfList.scss"; // Adjust the import path as necessary
 import SJFCard from "../../components/card/SJFCard";
