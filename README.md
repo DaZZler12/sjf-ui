@@ -1,4 +1,11 @@
-# React + TypeScript + Vite
+# FE for SJF scheduler
+
+
+https://github.com/user-attachments/assets/10b0dcaa-d464-4cb1-8ee1-b6588e700fa4
+
+
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
