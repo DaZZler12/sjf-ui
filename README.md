@@ -1,5 +1,11 @@
 # FE for SJF scheduler
 
+Ref video.
+
+
+https://github.com/user-attachments/assets/92addb3d-3a5a-4534-b45d-513acd7c2bdc
+
+
 
 https://github.com/user-attachments/assets/10b0dcaa-d464-4cb1-8ee1-b6588e700fa4
 
