@@ -69,7 +69,7 @@ const SjfJobForm: React.FC<SjfJobFormProps> = ({ open, handleClose }) => {
                 as={TextField}
                 margin="dense"
                 name="duration"
-                label="Job Duration"
+                label="Job Duration in seconds"
                 type="text"
                 fullWidth
                 variant="standard"
